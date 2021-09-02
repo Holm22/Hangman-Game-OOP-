@@ -1,4 +1,4 @@
-# Hangman-Game-OOP-
+# Hangman-Game-OOP
 Better Hangman than my previous one, because this one uses OOP and is easier to read.
 
 How to Play:
