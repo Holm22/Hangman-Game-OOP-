@@ -80,12 +80,12 @@ def intro():
   global p1,p2
 
   print("Player 1's Turn")
-  p1word = input("Player 1 Choose a Word: ")
+  p1word = input("Player 1 Choose a Word: ").lower()
   p1 = player(1, p1word, " _ "*len(p1word), 0, [], [], gameboard) #Sets up player 1
 
   os.system("clear")
   print("Player 2's Turn")
-  p2word = input("Player 2 Choose a Word: ")
+  p2word = input("Player 2 Choose a Word: ").lower()
   p2 = player(2, p2word, " _ "*len(p2word), 0, [], [], gameboard) #Sets up player 2
   os.system("clear")
 
@@ -94,7 +94,12 @@ gameboard = [" ","O","O\n|"," O\n/|"," O\n/|\\"," O\n/|\\\n/"," O\n/|\\\n/ \\"] 
 intro()
 
 win = 0
-while win != 1:
+while win == 0:
   turn(p1,p2)
   if win != 1: #Checks if player has won, otherwise switches to other players turn
     turn(p2,p1)
+  if win == 1:
+    restart = input("Would you like to play again? (Y/N): ")
+    if restart == "Y".lower():
+      win = 0
+      intro()
